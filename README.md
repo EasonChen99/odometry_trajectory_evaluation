@@ -15,7 +15,7 @@ It only depends on [`catkin_simple`](https://github.com/catkin/catkin_simple) to
 * `ruamel.yaml` for [preserving the order in yaml configurations](https://stackoverflow.com/questions/5121931/in-python-how-can-you-load-yaml-mappings-as-ordereddicts)
 
 ## 2.Prepare the Data
-
+All trajectory estimation should be saved in the  'result' folder.
 
 [comment]: <> (# for one method)
 
