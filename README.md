@@ -1,4 +1,32 @@
-# rpg_trajectory_evaluation
+# Odometry Trajectory Evaluation
+## This repository is forked from [rpg_tragectory_evaluation](https://github.com/uzh-rpg/rpg_trajectory_evaluation) and revised for my personal use.
+
+## 1.Install
+The package is written in python and tested in Ubuntu 16.04 and 18.04.
+Currently only `python2` is supported.
+The package can be used as a ROS package as well as a standalone tool.
+To use it as a ROS package, simply clone it into your workspace.
+It only depends on [`catkin_simple`](https://github.com/catkin/catkin_simple) to build.
+
+**Dependencies**: You will need install the following:
+
+* `numpy` and `matplotlib` for the analysis/plotting
+* `colorama` for colored console output
+* `ruamel.yaml` for [preserving the order in yaml configurations](https://stackoverflow.com/questions/5121931/in-python-how-can-you-load-yaml-mappings-as-ordereddicts)
+
+## 2.Prepare the Data
+
+
+[comment]: <> (# for one method)
+
+[comment]: <> (python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py I2D_VO.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=4)
+
+[comment]: <> (# for all method)
+
+[comment]: <> (python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py I2D_VO.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=3)
+
+---
+# Original Introduction from the Official Project
 
 This repository implements common used trajectory evaluation methods for visual(-inertial) odometry. Specifically, it includes
 * Different trajectory alignment methods (rigid-body, similarity and yaw-only rotation)
