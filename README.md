@@ -31,15 +31,62 @@ The groundtruth (`stamped_groundtruth.txt`) and estimated poses (`stamped_traj_e
 ......
 ```
 
+You can see the folders under results for examples. The final directory structure should look like:
 
+```Shell
+├── results
+    ├── Name_you_like
+        ├── laptop
+            ├── Method_1
+                ├── laptop_Method_1_Dataset_1
+                    ├── stamped_groundtruth.txt
+                    ├── stamped_traj_estimate0.txt                    
+                    ├── stamped_traj_estimate1.txt                    
+                    ├── stamped_traj_estimate2.txt                    
+                ├── laptop_Method_1_Dataset_2
+                ├── laptop_Method_1_Dataset_3
+            ├── Method_2
+            ├── Method_3
+            ├── Method_4
+            ├── Method_5
+```
 
-[comment]: <> (# for one method)
+## 3.Run the evaluation
+If you want to evaluate one method on one dataset, run
 
-[comment]: <> (python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py I2D_VO.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=4)
+```
+python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories_single.py ./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/laptop/Method_1/laptop_Method_1_Dataset_0 --mul_trials=3
+```
 
-[comment]: <> (# for all method)
+If you want to evaluate several method on several datasets, run
 
-[comment]: <> (python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py I2D_VO.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/I2D_VO/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=3)
+```
+python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py Name_you_like.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=3
+```
+
+As for the `Name_you_like.yaml`, you should edit it and save it in the `analyze_trajectories_config` folder. The config information should look like:
+
+```Shell
+Datasets:
+  Dataset_1:
+    label: Dataset1
+  Dataset_2:
+    label: Dataset2
+  Dataset_3:
+    label: Dataset3
+Algorithms:
+  Method_1:
+    fn: traj_est
+    label: Method1
+  Method_2:
+    fn: traj_est
+    label: Method2
+  Method_3:
+    fn: traj_est
+    label: Method3
+RelDistances: []
+
+```
 
 ---
 # Original Introduction from the Official Project
