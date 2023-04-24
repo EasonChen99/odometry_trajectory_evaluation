@@ -15,7 +15,23 @@ It only depends on [`catkin_simple`](https://github.com/catkin/catkin_simple) to
 * `ruamel.yaml` for [preserving the order in yaml configurations](https://stackoverflow.com/questions/5121931/in-python-how-can-you-load-yaml-mappings-as-ordereddicts)
 
 ## 2.Prepare the Data
-All trajectory estimation should be saved in the `result` folder.
+All trajectory estimation should be organized as a self-contained folder and saved in the `result` folder. Each folder needs to contain at least two text files specifying the groundtruth and estimated poses with timestamps.
+
+* `stamped_groundtruth.txt`: groundtruth poses with timestamps
+* `stamped_traj_estimate.txt`: estimated poses with timestamps
+* (optional) `eval_cfg.yaml`: specify evaluation parameters
+* (optional) `start_end_time.yaml`: specify the start and end time (in seconds) for analysis.
+
+
+The groundtruth (`stamped_groundtruth.txt`) and estimated poses (`stamped_traj_estimate.txt`) are specified in the following format
+
+```
+# timestamp tx ty tz qx qy qz qw
+1.403636580013555527e+09 1.258278699999999979e-02 -1.561510199999999963e-03 -4.015300900000000339e-02 -5.131151899999999988e-02 -8.092916900000000080e-01 8.562779200000000248e-04 5.851609599999999523e-01
+......
+```
+
+
 
 [comment]: <> (# for one method)
 
