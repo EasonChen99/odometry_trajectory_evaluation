@@ -61,7 +61,7 @@ python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories_single.py
 If you want to evaluate several method on several datasets, run
 
 ```
-python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py Name_you_like.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=3
+python2 src/rpg_trajectory_evaluation-0.1/scripts/analyze_trajectories.py Name_you_like.yaml --output_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --results_dir=./src/rpg_trajectory_evaluation-0.1/results/Name_you_like/ --odometry_error_per_dataset --rmse_table --rmse_boxplot --mul_trials=3 --no_sort_names
 ```
 
 As for the `Name_you_like.yaml`, you should edit it and save it in the `analyze_trajectories_config` folder. The config information should look like:
